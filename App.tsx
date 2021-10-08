@@ -11,10 +11,11 @@ const App = () => {
   const {ReactOneCustomMethod} = NativeModules;
   const [id, setId] = useState('Press the button to get The ID');
 
-  const getId = () => {
+  const getId = async() => {
     ReactOneCustomMethod.getPhoneID()
       .then((res: string) => {
         setId('ID: ' + res);
+        console.log(res)
       })
       .catch((err: any) => {
         console.error(err);
